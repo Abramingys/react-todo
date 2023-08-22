@@ -13,12 +13,11 @@ function Todolist() {
                 return (
                     <Todoitem todo={todo} key={todo.id} />
                 )
-            })) ||
-                todos.filter(({ completed }) => isCompleted ? completed : true).map((todo, index) => {
-                    return (
-                        <Todoitem todo={todo} key={todo.id} />
-                    )
-                })
+            })) || todos.filter(({ completed }) => isCompleted ? completed : true).map((todo) => {
+                return (
+                    <Todoitem todo={todo} key={todo.id} />
+                )
+            })
             }
         </ul>
     )

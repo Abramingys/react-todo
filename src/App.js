@@ -14,6 +14,8 @@ function App() {
   const [todos, setTodos] = React.useState([]);
   const [isCompleted, setIsCompleted] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState('');
+  // const [input, setInput] = React.useState(headerInput);
+
 
 
   const addTodo = () => {
@@ -46,10 +48,18 @@ function App() {
     setIsCompleted(false);
   };
 
+  // const changeTodoTaks = (e, id) => {
+  //   setInput(e.target.value)
+  //   setTodos(todos.map(todo => todo.id === id ? { ...todo, task: input } : todo));
+  // }
+
+
+
+
 
   return (
     <>
-      <InputContext.Provider value={{ headerInput, setHeaderInput, addTodo, todos, removeAll, removeLast, toogleComplete, removeTask, setTodos, showCompleted, showAll, isCompleted, searchValue, setSearchValue }}>
+      <InputContext.Provider value={{ headerInput, setHeaderInput, addTodo, todos, removeAll, removeLast, toogleComplete, removeTask, setTodos, showCompleted, showAll, isCompleted, searchValue, setSearchValue, }}>
         <Header />
         <Info />
         <Todolist />
