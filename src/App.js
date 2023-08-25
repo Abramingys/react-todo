@@ -1,9 +1,9 @@
 import React from 'react'
 
 import './scss/allStyles.scss';
-import Header from './components/Header';
-import Info from './components/Info';
-import Todolist from './components/Todolist';
+import Header from './components/Header/Header';
+import Info from './components/Info/Info';
+import TodoList from './components/TodoList/TodoList';
 
 
 export const InputContext = React.createContext();
@@ -19,6 +19,7 @@ function App() {
 
 
   const addTodo = () => {
+
     setTodos([...todos, { id: Math.random().toString(36), task: headerInput, completed: false }]);
     setHeaderInput('');
 
@@ -62,7 +63,7 @@ function App() {
       <InputContext.Provider value={{ headerInput, setHeaderInput, addTodo, todos, removeAll, removeLast, toogleComplete, removeTask, setTodos, showCompleted, showAll, isCompleted, searchValue, setSearchValue, }}>
         <Header />
         <Info />
-        <Todolist />
+        <TodoList />
       </InputContext.Provider>
     </>
 

@@ -22,14 +22,6 @@ body {
   padding: 20px;
 }
 
-.button {
-  padding: 10px 30px;
-  background-color: $cyan;
-  border: 2px solid $black;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
 .input {
   padding: 10px 30px;
   color: $blue;
@@ -42,12 +34,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-}
-
-.info {
-  display: flex;
-  gap: 20px;
-  align-items: center;
 }
 
 .hide {

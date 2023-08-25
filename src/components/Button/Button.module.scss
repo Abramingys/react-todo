@@ -1,0 +1,8 @@
+@import '../../scss/variables.scss';
+.button {
+  padding: 10px 30px;
+  background-color: $cyan;
+  border: 2px solid $black;
+  border-radius: 10px;
+  cursor: pointer;
+}
