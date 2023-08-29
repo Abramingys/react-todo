@@ -1,0 +1,12 @@
+@import '../../scss/variables.scss';
+.input {
+  padding: 10px 30px;
+  color: $blue;
+  outline: none;
+  border: 2px solid $black;
+  border-radius: 10px;
+}
+
+.inputcrossed {
+  text-decoration: line-through;
+}
