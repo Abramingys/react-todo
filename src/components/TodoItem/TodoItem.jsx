@@ -27,7 +27,6 @@ function Todoitem({ todo }) {
         <li className={styles.todoitem + ' ' + (todo.completed ? styles.todoitemred : '')}>
             <input type="checkbox" onClick={() => toogleComplete(todo.id)} />
             <Input crossed={todo.completed ? 'inputcrossed' : ''} placeholder="Todo text ..." inputValue={input} onChange={(e) => changeTodoTaks(e, todo.id)} />
-            {/* <input className={todo.completed ? "input todo-list__input todo-list__input_crossed" : "input todo-list__input"} type="text" placeholder="Todo text ..." value={input} onChange={(e) => changeTodoTaks(e, todo.id)} /> */}
             <Button handleClick={() => removeTask(todo.id)} text='X' />
         </li >
     )

@@ -11,6 +11,9 @@ function Header() {
     const [headerInput, setHeaderInput] = React.useState('');
 
     const addTodo = () => {
+        if (!headerInput) {
+            return
+        }
         setTodos([...todos, { id: Math.random().toString(36), task: headerInput, completed: false }]);
         setHeaderInput('');
     };
