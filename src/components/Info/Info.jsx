@@ -1,11 +1,25 @@
 import React from 'react'
-import { InputContext } from '../../App';
+
 import styles from './Info.module.scss';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
+import { useTodoContext } from '../../provider/TodoProvider';
+import { useInfoContext } from '../../provider/InfoProvider';
 
 function Info() {
-    const { todos, showCompleted, showAll, searchValue, setSearchValue } = React.useContext(InputContext);
+
+    const { todos } = useTodoContext();
+    const { setSearchValue, searchValue, setIsCompleted } = useInfoContext();
+
+
+    const showCompleted = () => {
+        setIsCompleted(true);
+    };
+
+    const showAll = () => {
+        setIsCompleted(false);
+    };
+
 
     return (
         <div className={styles.info}>
@@ -15,10 +29,9 @@ function Info() {
             <p>Completed:
                 <span>{todos.filter(({ completed }) => completed).length}</span>
             </p>
-            <Button func={showAll} text="Show All" />
-            <Button func={showCompleted} text="Show Completed" />
-            {/* <input className="input header__input-text" type="text" placeholder="search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)} /> */}
-            <Input placeholder="search..." inputValue={searchValue} func={(e) => setSearchValue(e.target.value)} />
+            <Button handleClick={showAll} text="Show All" />
+            <Button handleClick={showCompleted} text="Show Completed" />
+            <Input placeholder="search..." inputValue={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
         </div>
     )
 }

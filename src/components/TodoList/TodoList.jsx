@@ -1,15 +1,18 @@
 import React from 'react'
-import { InputContext } from "../../App";
+
+import { useTodoContext } from '../../provider/TodoProvider';
+import { useInfoContext } from '../../provider/InfoProvider';
 import Todoitem from "../TodoItem/TodoItem";
 import styles from './TodoList.module.scss';
-import '../../scss/variables.scss';
+
 
 function TodoList() {
-
-    const { todos, isCompleted, searchValue } = React.useContext(InputContext);
+    const { todos } = useTodoContext();
+    const { searchValue, isCompleted } = useInfoContext();
 
 
     return (
+
         <ul className={styles.todolist}>
             {(searchValue && todos.filter((elem) => elem.task.search(searchValue) != -1).map((todo) => {
                 return (

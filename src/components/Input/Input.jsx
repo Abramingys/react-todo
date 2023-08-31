@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './Input.module.scss';
 
 
-function Input({ placeholder, inputValue, func, crossed }) {
+function Input({ placeholder, inputValue, onChange, crossed }) {
+
     return (
-        <input className={styles.input + ' ' + styles[crossed]} type="text" placeholder={placeholder} value={inputValue} onChange={func} />
+        <input className={styles.input + ' ' + styles[crossed]} type="text" placeholder={placeholder} value={inputValue} onChange={onChange} />
     )
 
 }

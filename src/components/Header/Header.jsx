@@ -2,20 +2,34 @@ import React from 'react';
 import styles from './Header.module.scss';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-import { InputContext } from '../../App';
+import { useTodoContext } from '../../provider/TodoProvider';
 
 
 
 function Header() {
+    const { todos, setTodos } = useTodoContext();
+    const [headerInput, setHeaderInput] = React.useState('');
 
-    const { headerInput, setHeaderInput, addTodo, removeAll, removeLast } = React.useContext(InputContext);
+    const addTodo = () => {
+        setTodos([...todos, { id: Math.random().toString(36), task: headerInput, completed: false }]);
+        setHeaderInput('');
+    };
+
+    const removeAll = () => {
+        setTodos([])
+    };
+
+    const removeLast = () => {
+        setTodos(todos.filter((elem) => elem != todos.at(-1)));
+    };
+
 
     return (
         <header className={styles.header}>
-            <Button func={removeAll} text="Dellete All" />
-            <Button func={removeLast} text="Dellete Last" />
-            <Input func={(e) => setHeaderInput(e.target.value)} placeholder="Enter Add..." inputValue={headerInput} />
-            <Button func={addTodo} text='Add' />
+            <Button handleClick={removeAll} text="Dellete All" />
+            <Button handleClick={removeLast} text="Dellete Last" />
+            <Input onChange={(e) => setHeaderInput(e.target.value)} placeholder="Enter Add..." inputValue={headerInput} />
+            <Button handleClick={addTodo} text='Add' />
         </header >
     )
 };

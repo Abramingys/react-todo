@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Button.module.scss'
 
-function Button({ text, func }) {
+function Button({ text, handleClick }) {
 
     return (
-        <button onClick={func} className={styles.button}>{text}</button>
+        <button onClick={handleClick} className={styles.button}>{text}</button>
     );
 }
 
