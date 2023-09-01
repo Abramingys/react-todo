@@ -7,25 +7,26 @@ import { useTodoContext } from '../../provider/TodoProvider';
 
 
 function Header() {
+
     const { todos, setTodos } = useTodoContext();
     const [headerInput, setHeaderInput] = React.useState('');
 
     const addTodo = () => {
         if (!headerInput) {
-            return
-        }
+            return;
+        };
+
         setTodos([...todos, { id: Math.random().toString(36), task: headerInput, completed: false }]);
         setHeaderInput('');
     };
 
     const removeAll = () => {
-        setTodos([])
+        setTodos([]);
     };
 
     const removeLast = () => {
         setTodos(todos.filter((elem) => elem != todos.at(-1)));
     };
-
 
     return (
         <header className={styles.header}>

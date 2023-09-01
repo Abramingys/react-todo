@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 import styles from './Info.module.scss';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
@@ -11,7 +10,6 @@ function Info() {
     const { todos } = useTodoContext();
     const { setSearchValue, searchValue, setIsCompleted } = useInfoContext();
 
-
     const showCompleted = () => {
         setIsCompleted(true);
     };
@@ -19,7 +17,6 @@ function Info() {
     const showAll = () => {
         setIsCompleted(false);
     };
-
 
     return (
         <div className={styles.info}>
@@ -34,7 +31,7 @@ function Info() {
             <Input placeholder="search..." inputValue={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
         </div>
     )
-}
+};
 
 export default Info;
 
